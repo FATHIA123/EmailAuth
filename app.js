@@ -1,5 +1,4 @@
 const express = require('express');
-// const hbs = require('express-hbs');
 const mongoose = require('mongoose');
 const expressLayouts = require('express-ejs-layouts');
 
@@ -7,10 +6,13 @@ const expressLayouts = require('express-ejs-layouts');
 const app = express();
 
 // DB config 
-// const db = require('./config/keys').MONGOURI;
+// const db = require('./config/keys').MongoURI;
 
 // connect to MongoDB
 mongoose.connect( 'mongodb+srv://EmailAuthUser:EmailAuthUser@emailauth-tqn4f.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true }).then(() => console.log('MongoDB connected...')).catch(err => console.log(err) );
+// mongoose.connect( 'db', { useNewUrlParser: true })
+// .then(() => console.log('MongoDB connected...'))
+// .catch(err => console.log(err) );
 
 // const db = require('./config/keys').MongoURI;
 
