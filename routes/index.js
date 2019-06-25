@@ -2,9 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 
-router.get('/', (req, res) => res.send('welcome to the browser'));
+router.get('/', (req, res) => res.render("welcome"));
 
 
-
-
-module.exports = router 
+module.exports = router; 

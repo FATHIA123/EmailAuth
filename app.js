@@ -1,11 +1,43 @@
 const express = require('express');
-const hbs = require("hbs");
+// const hbs = require('express-hbs');
+const mongoose = require('mongoose');
+const expressLayouts = require('express-ejs-layouts');
+
 
 const app = express();
 
-// views hbs
-app.use(hbs);
-app.set("view engine", "hbs");
+// DB config 
+// const db = require('./config/keys').MONGOURI;
+
+// connect to MongoDB
+mongoose.connect( 'mongodb+srv://EmailAuthUser:EmailAuthUser@emailauth-tqn4f.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true }).then(() => console.log('MongoDB connected...')).catch(err => console.log(err) );
+
+// const db = require('./config/keys').MongoURI;
+
+
+// setup hbs view engine 
+// app.set("view engine", "hbs");
+
+//location of your views folder
+// app.set('views', __dirname + '/views');
+
+
+// EJS
+
+app.use(expressLayouts);
+app.set('view engine', 'ejs');
+
+
+
+
+// Bodyparser 
+
+app.use(express.urlencoded({ extended: true }))
+
+
+
+
+
 
 
 // Routes 
