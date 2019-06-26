@@ -34,7 +34,7 @@ app.set('view engine', 'ejs');
 
 // Bodyparser 
 
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: false }))
 
 
 
