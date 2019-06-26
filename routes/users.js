@@ -8,7 +8,7 @@ router.get('/login', (req, res) => res.render('login'));
 router.get('/register', (req, res) => res.render('register'));
 
 
-// Register handle
+// Register handle - post resquest  
 
 router.post('/register', (req, res) => {
 const { name, email, password, password2 } = req.body;
@@ -20,7 +20,7 @@ if(!name || !email || !password || !password2) {
 }
 // check password match 
 
-if(password != password2) {
+if(password !== password2) {
     errors.push({ msg: 'Passwords do not match' });
 }
 
