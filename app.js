@@ -35,11 +35,25 @@ app.set('view engine', 'ejs');
 
 // Bodyparser 
 
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: false }));
 
 
 
+// Express session 
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true,
+  }));
+  // Connect  Flash 
+  app.use(flash());
 
+// Gloabal Vars : this is for color errors
+app.use((req, res, next)=> {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    next();
+});
 
 
 
